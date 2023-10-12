@@ -1,0 +1,75 @@
+
+    <!-- <div class="login" >
+        <form class="custom-form" method="post">
+          
+          
+          
+      </div> 
+    </form> -->
+
+
+    <body>
+        <div class="contenedor-login">
+            <form action="form-control">
+                <div class="container">
+                    <div class="form-container">
+                        <div class="links card-header">
+                            <div class="ulist">
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link activate" style="border: 1px solid black;background-color: #889b95; color: #1BB678;font-weight: 600;" routerLink="/login">Ingresar</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" routerLink="/register">Registrarse</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+    
+                            <select class="form-select form-select-lg mb-3" aria-label="Large select example" [(ngModel)]="rol"
+                                name="mySelect">
+                                <option selected>Rol</option>
+                                <option value="admin">Administrador</option>
+                                <option value="customer">Usuario</option>
+                            </select>
+        
+                            <div class="formulario" *ngIf="rol === 'admin'">
+                                
+                                <div class="user">
+                                    <label for="username">Usuario: </label><br>
+                                <input type="username" [(ngModel)]="username" name="username" placeholder="Usuario"
+                                    required="required" />
+                                </div>
+                                <div class="user">
+                                    <label for="username">Contraseña: </label><br>
+                                    <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña"
+                                        required="required" />
+                                </div>
+                                
+                                <button type="submit" (click)="onLoginAdmin()">Ingresar</button>
+                            </div>
+                            
+                            <div  class="formulario" *ngIf="rol === 'customer'">
+                                <div class="user">
+                                    <label for="username">Usuario: </label><br>
+                                <input type="username" [(ngModel)]="username" name="username" placeholder="Usuario"
+                                    required="required" />
+                                </div>
+                                <div class="user">
+                                    <label for="username">Contraseña: </label><br>
+                                    <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña"
+                                        required="required" />
+                                </div>
+                            
+                                <button type="submit" (click)="onLoginCustomer()">Ingresar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="../../../../assets/login/perro-feliz-rastas-sobre-fondo-oscuro-espacio-banner-texto-generado-ai_409674-550.jpg" alt="">
+                </div>
+            </form>
+        </div>
+        
+        
+    </body>

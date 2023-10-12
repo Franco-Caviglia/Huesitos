@@ -1,0 +1,89 @@
+
+<body>
+    <div class="contenedor-login">
+        <form action="form-control">
+            <div class="container">
+                <div class="form-container">
+                    <div class="links card-header">
+                        <div class="ulist">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link"  routerLink="/login">Log in</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link  activate" style="border: 1px solid black;background-color: #889b95; color: #1BB678;font-weight: 600;" routerLink="/register">New Account</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+
+                        <select class="form-select form-select-lg mb-3" aria-label="Large select example" [(ngModel)]="rol"
+                            name="mySelect">
+                            <option selected>Rol</option>
+                            <option value="admin">Administrador</option>
+                            <option value="customer">Customer</option>
+                        </select>
+    
+                        <div class="formulario"  *ngIf="rol === 'admin'">
+                            
+                            <div class="user">
+                                <label for="username">Usuario: </label><br>
+                            <input type="username" [(ngModel)]="username" name="username" placeholder="Usuario"
+                                required="required" />
+                            </div>
+                            <div class="user">
+                                <label for="username">Contraseña: </label><br>
+                                <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña"
+                                    required="required" />
+                            </div>
+                            <div class="user">
+                                <label for="email">Email: </label><br>
+                            <input type="email" [(ngModel)]="email" name="username" placeholder="Email"
+                                required="required" />
+                            </div>
+                            <div class="user">
+                                <label for="telefono">Telefono: </label><br>
+                                <input type="string" [(ngModel)]="phone" name="phone" placeholder="Telefono"
+                                    required="required" />
+                            </div>
+                            
+                            <button type="submit" (click)="onLoginAdmin()">Log in</button>
+                        </div>
+                       
+
+                        <div class="formulario"  *ngIf="rol === 'customer'">
+                            
+                            <div class="user">
+                                <label for="username">Usuario: </label><br>
+                            <input type="username" [(ngModel)]="username" name="username" placeholder="Usuario"
+                                required="required" />
+                            </div>
+                            <div class="user">
+                                <label for="username">Contraseña: </label><br>
+                                <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña"
+                                    required="required" />
+                            </div>
+                            <div class="user">
+                                <label for="email">Email: </label><br>
+                            <input type="email" [(ngModel)]="email" name="username" placeholder="Email"
+                                required="required" />
+                            </div>
+                            <div class="user">
+                                <label for="telefono">Telefono: </label><br>
+                                <input type="string" [(ngModel)]="phone" name="phone" placeholder="Telefono"
+                                    required="required" />
+                            </div>
+                            
+                            <button type="submit" (click)="onLoginAdmin()">Log in</button>
+                        </div>
+                    
+                    </div>
+                </div>
+                <img src="../../../../assets/login/perro-feliz-rastas-sobre-fondo-oscuro-espacio-banner-texto-generado-ai_409674-550.jpg" alt="">
+            </div>
+        </form>
+    </div>
+    
+    
+</body>
