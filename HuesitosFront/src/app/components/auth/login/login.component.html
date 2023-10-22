@@ -27,14 +27,14 @@
                         </div>
                         <div class="card-body">
     
-                            <select class="form-select form-select-lg mb-3" aria-label="Large select example" [(ngModel)]="rol"
+                            <!-- <select class="form-select form-select-lg mb-3" aria-label="Large select example" [(ngModel)]="rol"
                                 name="mySelect">
                                 <option selected>Rol</option>
                                 <option value="admin">Administrador</option>
                                 <option value="customer">Usuario</option>
-                            </select>
+                            </select> -->
         
-                            <div class="formulario" *ngIf="rol === 'admin'">
+                            <div class="formulario">
                                 
                                 <div class="user">
                                     <label for="username">Usuario: </label><br>
@@ -47,22 +47,7 @@
                                         required="required" />
                                 </div>
                                 
-                                <button type="submit" (click)="onLoginAdmin()">Ingresar</button>
-                            </div>
-                            
-                            <div  class="formulario" *ngIf="rol === 'customer'">
-                                <div class="user">
-                                    <label for="username">Usuario: </label><br>
-                                <input type="username" [(ngModel)]="username" name="username" placeholder="Usuario"
-                                    required="required" />
-                                </div>
-                                <div class="user">
-                                    <label for="username">Contraseña: </label><br>
-                                    <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña"
-                                        required="required" />
-                                </div>
-                            
-                                <button type="submit" (click)="onLoginCustomer()">Ingresar</button>
+                                <button type="submit" (click)="onLogin()">Ingresar</button>
                             </div>
                         </div>
                     </div>

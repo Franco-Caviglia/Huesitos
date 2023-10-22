@@ -34,38 +34,7 @@ export class RegisterComponent implements OnInit{
       console.log(this.rol);
   }
 
-  onLoginAdmin(): void {
-    this.loginUser = new LoginUser(this.username, this.password);
-    this.authService.loginAdmin(this.loginUser).subscribe(
-      data => {
-        this.isLogged = true;
-        this.isLoginFail = false;
-        
-        this.tokenService.setToken(data.token);
-      }, err => {
-        this.isLogged = false;
-        this.isLoginFail = true;
-        this.errMsg = err.error.errMsg;
-      }
-    );
-  }
-
-  onLoginCustomer(): void {
-    this.loginUser = new LoginUser(this.username, this.password);
-    this.authService.loginCustomer(this.loginUser).subscribe(
-      data => {
-        this.isLogged = true;
-        this.isLoginFail = false;
-        
-        this.tokenService.setToken(data.token);
-        this.router.navigate(['home']);
-      }, err => {
-        this.isLogged = false;
-        this.isLoginFail = true;
-        this.errMsg = err.error.errMsg;
-      }
-    );
-  }
+  
 
 }
 

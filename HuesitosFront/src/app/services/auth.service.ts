@@ -10,7 +10,7 @@ import { LoginUser } from '../models/login-user';
 })
 export class AuthService {
   
-  authUrl = 'http://localhost:8080/auth';
+  authUrl = 'http://localhost:8080/auth/';
 
   constructor(private http: HttpClient) { }
 
@@ -18,15 +18,11 @@ export class AuthService {
     return this.http.post<any>(`${this.authUrl}` + `registerAdmin`, registerAdmin);
   }
 
-  public loginAdmin(loginAdmin: LoginUser): Observable<JwtDto>{
-    return this.http.post<JwtDto>(`${this.authUrl}` + `loginAdmin`, loginAdmin);
+  public login(login: LoginUser): Observable<JwtDto>{
+    return this.http.post<JwtDto>(`${this.authUrl}` + `login`, login);
   }
 
-  public registerCustomer(registerCustomer: RegisterUser): Observable<any>{
-    return this.http.post<any>(`${this.authUrl}` + `registerCustomer`, registerCustomer);
-  }
-
-  public loginCustomer(loginCustomer: LoginUser): Observable<JwtDto> {
-    return this.http.post<JwtDto>(`${this.authUrl}` + `loginCustomer`, loginCustomer);
+  public registerCustomer(registerUser: RegisterUser): Observable<any>{
+    return this.http.post<any>(`${this.authUrl}` + `registerUser`, registerUser);
   }
 }
