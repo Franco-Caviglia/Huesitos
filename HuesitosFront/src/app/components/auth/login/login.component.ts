@@ -17,46 +17,37 @@ export class LoginComponent implements OnInit{
   loginUser: LoginUser;
   username: string;
   password: string;
-  rol: string;
+  roles: string[];
   errMsg: string;
 
   constructor(private tokenService: TokenService, private authService: AuthService, private router: Router){}
 
   ngOnInit(): void {
-      if(this.tokenService.getToken()){
-        this.isLogged = true;
-        this.isLoginFail = false;
-        //TODO definir rol;
+      if(this.isLogged == false){
+        if(this.tokenService.getToken()){
+          this.isLogged = true;
+          this.isLoginFail = false;
+          
+          this.roles = this.tokenService.getAuthorities();
+        }
       }
       
-      this.rol = 'Rol';
-      console.log(this.rol);
+      
   }
 
-  onLoginAdmin(): void {
+  onLogin(): void {
     this.loginUser = new LoginUser(this.username, this.password);
-    this.authService.loginAdmin(this.loginUser).subscribe(
+    this.authService.login(this.loginUser).subscribe(
       data => {
         this.isLogged = true;
         this.isLoginFail = false;
         
         this.tokenService.setToken(data.token);
-      }, err => {
-        this.isLogged = false;
-        this.isLoginFail = true;
-        this.errMsg = err.error.errMsg;
-      }
-    );
-  }
+        this.tokenService.setUsername(data.username);
+        this.tokenService.setAuthorities(data.authorities);
+        this.roles = data.authorities;
 
-  onLoginCustomer(): void {
-    this.loginUser = new LoginUser(this.username, this.password);
-    this.authService.loginCustomer(this.loginUser).subscribe(
-      data => {
-        this.isLogged = true;
-        this.isLoginFail = false;
-        
-        this.tokenService.setToken(data.token);
+
         this.router.navigate(['home']);
       }, err => {
         this.isLogged = false;
