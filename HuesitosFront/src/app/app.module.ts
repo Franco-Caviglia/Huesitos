@@ -13,6 +13,9 @@ import { FormsModule } from '@angular/forms';
 import { UserComponent } from './components/user/user.component';
 import { interceptorProvider } from './interceptors/prod-interceptor.service';
 import { SideboardComponent } from './shared/sideboard/sideboard.component';
+import { ShiftsComponent } from './components/shifts/shifts.component';
+import { MarketComponent } from './components/market/market.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { SideboardComponent } from './shared/sideboard/sideboard.component';
     LoginComponent,
     RegisterComponent,
     UserComponent,
-    SideboardComponent
+    SideboardComponent,
+    ShiftsComponent,
+    MarketComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,

@@ -7,20 +7,33 @@ import { UserComponent } from './components/user/user.component';
 
 import { authGuard } from './guards/auth.guard';
 import { SideboardComponent } from './shared/sideboard/sideboard.component';
+import { ShiftsComponent } from './components/shifts/shifts.component';
+import { MarketComponent } from './components/market/market.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent, canActivate: [authGuard]},
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent,
+  // canActivate: [authGuard]
+  },
+
+  //{path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
 
   { path: 'user',
     component: UserComponent,
-    canActivate: [authGuard]},
+    //canActivate: [authGuard]
+  },
     
-  {path: 'sideboard', component: SideboardComponent, canActivate: [authGuard]}
+  {path: 'sideboard', component: SideboardComponent,
+   //canActivate: [authGuard]
+  },
+
+  {path: 'shifts', component: ShiftsComponent},
+  {path: 'market', component: MarketComponent},
+  {path: 'contacts', component: ContactsComponent}
 ];
 
 @NgModule({
