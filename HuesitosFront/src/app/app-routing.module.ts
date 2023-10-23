@@ -15,25 +15,28 @@ import { ContactsComponent } from './components/contacts/contacts.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent,
-  // canActivate: [authGuard]
+   canActivate: [authGuard]
   },
 
-  //{path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
 
   { path: 'user',
     component: UserComponent,
-    //canActivate: [authGuard]
+    canActivate: [authGuard]
   },
     
   {path: 'sideboard', component: SideboardComponent,
-   //canActivate: [authGuard]
+   canActivate: [authGuard]
   },
 
-  {path: 'shifts', component: ShiftsComponent},
-  {path: 'market', component: MarketComponent},
-  {path: 'contacts', component: ContactsComponent}
+  {path: 'shifts', component: ShiftsComponent,
+  canActivate: [authGuard]},
+  {path: 'market', component: MarketComponent,
+  canActivate: [authGuard]},
+  {path: 'contacts', component: ContactsComponent,
+  canActivate: [authGuard]}
 ];
 
 @NgModule({
