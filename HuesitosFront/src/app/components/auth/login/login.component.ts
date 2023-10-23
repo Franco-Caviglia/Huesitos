@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LoginUser } from 'src/app/models/login-user';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
+import { HomeComponent } from '../../home/home.component';
 
 @Component({
   selector: 'app-login',
@@ -46,15 +47,17 @@ export class LoginComponent implements OnInit{
         this.tokenService.setUsername(data.username);
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
-
-
-        this.router.navigate(['home']);
+        this.router.navigateByUrl('/home');
+        
+        
+        
       }, err => {
         this.isLogged = false;
         this.isLoginFail = true;
-        this.errMsg = err.error.errMsg;
+        //this.errMsg = err.error.errMsg;
       }
     );
   }
 
+  
 }

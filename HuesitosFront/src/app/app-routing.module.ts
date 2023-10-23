@@ -11,15 +11,16 @@ import { SideboardComponent } from './shared/sideboard/sideboard.component';
 
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'login', component: LoginComponent },
+  {path: 'home', component: HomeComponent, canActivate: [authGuard]},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
 
   { path: 'user',
     component: UserComponent,
     canActivate: [authGuard]},
     
-  {path: 'sideboard', component: SideboardComponent}
+  {path: 'sideboard', component: SideboardComponent, canActivate: [authGuard]}
 ];
 
 @NgModule({

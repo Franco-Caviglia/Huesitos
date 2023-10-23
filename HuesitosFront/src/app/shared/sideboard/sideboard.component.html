@@ -1,15 +1,15 @@
 
-<div class="container-sideboard">
+<div class="container-sideboard" *ngIf="token">
     <img class="logo" src="../../../assets/login/perro-feliz-rastas-sobre-fondo-oscuro-espacio-banner-texto-generado-ai_409674-550.jpg" alt="">
     <div class="list-routes">
-        <h3><i class="fa-solid fa-user"></i> Bhalta</h3> 
+        <h3><i class="fa-solid fa-user"></i> {{username}}</h3> 
         <ul>
             <li><a routerLink="home" routerLinkActive="active">Inicio</a></li>
             <li><a routerLink="shifts" routerLinkActive="active">Turnos</a></li>
             <li><a routerLink="users" routerLinkActive="active">Pacientes</a></li>
             <li><a routerLink="market" routerLinkActive="active">Productos</a></li>
             <li><a routerLink="contacts" routerLinkActive="active">Contactanos</a></li>
-            <li class="close" style=""><a href="/contacts">Cerrar sesion</a></li>
+            <li class="close"><button (click)="logOut()">Cerrar sesion</button></li>
         </ul>
     </div>
 </div>
