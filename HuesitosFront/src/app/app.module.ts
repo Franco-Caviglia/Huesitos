@@ -16,6 +16,7 @@ import { SideboardComponent } from './shared/sideboard/sideboard.component';
 import { ShiftsComponent } from './components/shifts/shifts.component';
 import { MarketComponent } from './components/market/market.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { OffcanvasComponent } from './components/offcanvas/offcanvas.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ContactsComponent } from './components/contacts/contacts.component';
     SideboardComponent,
     ShiftsComponent,
     MarketComponent,
-    ContactsComponent
+    ContactsComponent,
+    OffcanvasComponent
   ],
   imports: [
     BrowserModule,
