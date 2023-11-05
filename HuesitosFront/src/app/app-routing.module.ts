@@ -23,8 +23,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
 
-  { path: 'user',
-    component: UserComponent,
+  { path: 'offcanvas',
+    component: OffcanvasComponent,
     //canActivate: [authGuard]
   },
     
@@ -32,7 +32,7 @@ const routes: Routes = [
    //canActivate: [authGuard]
   },
 
-  {path: 'offcanvas', component: OffcanvasComponent,
+  {path: 'shifts', component: ShiftsComponent,
   //canActivate: [authGuard]
 },
   {path: 'market', component: MarketComponent,

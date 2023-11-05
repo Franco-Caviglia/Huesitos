@@ -1,0 +1,90 @@
+// start scss shift table
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+}
+div{
+    min-height: 100vh;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+div.table{
+    width: auto;
+    height:45vh;
+    background-color: #153230;
+ 
+    backdrop-filter: blur(7px);
+    box-shadow: 0 .4rem .8rem #0005;
+}
+.table_body{
+    width: 95%;
+    max-height:calc(89% - .8rem) ;
+    background-color: #fffb;
+    margin: .8rem auto;
+    border-radius: .6rem;
+    overflow: auto;
+    
+}
+.table_body::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+.table_body::-webkit-scrollbar-thumb{
+    border-radius: 0.5rem;
+    background-color: #0004;
+    visibility: hidden;
+
+}
+.table_body:hover::-webkit-scrollbar-thumb{
+    visibility: visible;
+}
+table{
+    width: 100%;
+}
+table,th,td{
+border-collapse: collapse;
+padding: 1rem;
+text-align: left;
+
+
+}
+thead th {
+    position: sticky;
+    top:0;
+    left: 0;
+    background-color: #d5d1defe;
+
+}
+tbody tr:nth-child(even){
+    background-color:#0000000b;
+
+}
+tbody tr:hover{
+    background-color: #fff6;
+
+}
+.status{
+    padding: 0.4rem 0;
+    border-radius: 2rem;
+    text-align: center;
+}
+
+.status.delivered{
+    background-color: #86e49d;
+    color: #006b21;
+}
+.status.cancelled{
+    background-color: #d893a3;
+    color: #b30021;
+}
+.status.pending{
+    background-color: rgba(246, 248, 112, 0.973);
+   
+}
+
+//end scss shift table 
