@@ -29,6 +29,13 @@ body {
 estilos de la utilidad
 Copiar esto
 =====================================*/
+
+    @media screen and (max-width: 768px) {
+        .main {
+          width: 100%;
+        }
+      }
+
 .card-usuario {
     display: flex;
     width: auto;
