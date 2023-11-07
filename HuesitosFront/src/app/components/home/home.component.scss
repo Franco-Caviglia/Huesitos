@@ -80,6 +80,7 @@ h1 {
 // }
 
 .container-seccion {
+    
     display: flex;
     justify-content: center;
     margin-top: 2%;
@@ -87,8 +88,8 @@ h1 {
 
 .card {
     margin-right: 100px;
-    width: 330px;
-    height: 310px;
+    width: 270px;
+    height: 230px;
     display: grid;
     grid-template-rows: minmax(100%, 1fr);
     grid-template-areas: "stack";
