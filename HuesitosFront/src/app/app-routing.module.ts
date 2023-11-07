@@ -10,33 +10,33 @@ import { SideboardComponent } from './shared/sideboard/sideboard.component';
 import { ShiftsComponent } from './components/shifts/shifts.component';
 import { MarketComponent } from './components/market/market.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { OffcanvasComponent } from './components/offcanvas/offcanvas.component';
 
 
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent,
-   canActivate: [authGuard]
+   //canActivate: [authGuard]
   },
 
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
 
-  { path: 'user',
-    component: UserComponent,
-    canActivate: [authGuard]
+  { path: 'offcanvas',
+    component: OffcanvasComponent,
+    //canActivate: [authGuard]
   },
     
   {path: 'sideboard', component: SideboardComponent,
-   canActivate: [authGuard]
+   //canActivate: [authGuard]
   },
 
   {path: 'shifts', component: ShiftsComponent,
-  canActivate: [authGuard]
-  },
+  //canActivate: [authGuard]
+},
   {path: 'market', component: MarketComponent,
-  canActivate: [authGuard]
-  },
+  canActivate: [authGuard]},
   {path: 'contacts', component: ContactsComponent,
   canActivate: [authGuard]
   }

@@ -2,6 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule} from '@angular/common/http';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -16,6 +22,7 @@ import { SideboardComponent } from './shared/sideboard/sideboard.component';
 import { ShiftsComponent } from './components/shifts/shifts.component';
 import { MarketComponent } from './components/market/market.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { OffcanvasComponent } from './components/offcanvas/offcanvas.component';
 
 @NgModule({
   declarations: [
@@ -29,13 +36,21 @@ import { ContactsComponent } from './components/contacts/contacts.component';
     SideboardComponent,
     ShiftsComponent,
     MarketComponent,
-    ContactsComponent
+    ContactsComponent,
+    OffcanvasComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]

@@ -1,0 +1,1 @@
+export const URL_BACK='https://rickandmortyapi.com/api/character'
