@@ -36,11 +36,10 @@ const routes: Routes = [
   //canActivate: [authGuard]
 },
   {path: 'market', component: MarketComponent,
-  //canActivate: [authGuard]
-},
+  canActivate: [authGuard]},
   {path: 'contacts', component: ContactsComponent,
-  //canActivate: [authGuard]
-}
+  canActivate: [authGuard]
+  }
 ];
 
 @NgModule({
