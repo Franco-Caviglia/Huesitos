@@ -32,11 +32,14 @@ const routes: Routes = [
   },
 
   {path: 'shifts', component: ShiftsComponent,
-  canActivate: [authGuard]},
+  canActivate: [authGuard]
+  },
   {path: 'market', component: MarketComponent,
-  canActivate: [authGuard]},
+  canActivate: [authGuard]
+  },
   {path: 'contacts', component: ContactsComponent,
-  canActivate: [authGuard]}
+  canActivate: [authGuard]
+  }
 ];
 
 @NgModule({

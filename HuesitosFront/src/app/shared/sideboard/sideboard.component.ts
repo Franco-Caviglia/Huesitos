@@ -13,19 +13,19 @@ import { TokenService } from 'src/app/services/token.service';
 export class SideboardComponent implements OnInit{
 
   username: string;
-  token = true;
+  token = false;
 
   constructor(private tokenService: TokenService, private router: Router){
   }
   
   
   ngOnInit(): void {
-    // if(this.tokenService.getToken() != null){
-    //   this.token = true;
-    //   this.username = this.tokenService.getUsername();
-    // } else {
-    //   this.router.navigate(['login']);
-    // }
+     if(this.tokenService.getToken() != null){
+       this.token = true;
+       this.username = this.tokenService.getUsername();
+    } else {
+      this.router.navigate(['login']);
+    }
   
   }
   
