@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ShiftRequest } from 'src/app/models/ShiftRequest';
-import { Shift } from 'src/app/models/board';
+
 import { Pet } from 'src/app/models/pet';
-import { PetsComponent } from '../user/pets/pets.component';
 import { PetService } from 'src/app/services/pet.service';
 
 
@@ -14,7 +14,7 @@ import { PetService } from 'src/app/services/pet.service';
 export class OffcanvasComponent implements OnInit{
 
 
-  constructor(private petService: PetService){}
+  constructor(private petService: PetService, private router: Router){}
 
 
   myFilter = (d: Date | null): boolean => {
@@ -58,6 +58,7 @@ export class OffcanvasComponent implements OnInit{
   addShift():void{
     this.petService.addShiftForPet(this.petId, this.shift).subscribe(dato => {
       console.log(dato);
+      this.router.navigate(["/shifts"]);
     })
   }
 

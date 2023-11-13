@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Shift } from 'src/app/models/board';
+import { Shift } from 'src/app/models/shift';
+
 import { PetService } from 'src/app/services/pet.service';
 
 @Component({
@@ -24,12 +25,26 @@ export class ShiftsComponent implements OnInit {
   //Con este metodo nos suscribimos a ese listado, lo obtenemos y lo inicializamos en el OnInIt;
   obtenerShift(){
     this.petService.getShifts().subscribe(dato => {
-      this.shifts = dato;
+      
+        this.shifts = dato; 
+      
+     
+      
     })
   }
 
 
-  
+  completeShift(shiftId:number):void{
+
+    this.petService.completeShift(shiftId, this.shift).subscribe(
+      dato => {
+      console.log(dato);
+      this.obtenerShift();
+      window.location.reload();
+    } 
+    )
+       
+  } 
 
 
     myFilter = (d: Date | null): boolean => {

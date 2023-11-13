@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Pet } from '../models/pet';
 import { Observable } from 'rxjs';
-import { Shift } from '../models/board';
+
 import { ShiftRequest } from '../models/ShiftRequest';
+import { Shift } from '../models/shift';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,9 @@ export class PetService {
 
   addShiftForPet(petId:number, shift: ShiftRequest): Observable<Object>{
     return this.http.post(`${this.userURL}/${petId}` + '/addShiftToPet', shift);
+  }
+
+  completeShift(id:number, shift: Shift): Observable<Object>{
+    return this.http.put(`${this.userURL}/${id}` + '/markCompleteShifts', shift);
   }
 }
