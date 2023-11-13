@@ -22,6 +22,7 @@ import { SideboardComponent } from './shared/sideboard/sideboard.component';
 import { MarketComponent } from './components/market/market.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { OffcanvasComponent } from './components/offcanvas/offcanvas.component';
+import { PetsComponent } from './components/user/pets/pets.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { OffcanvasComponent } from './components/offcanvas/offcanvas.component';
     MarketComponent,
     ContactsComponent,
     OffcanvasComponent,
+    PetsComponent,
     
     
   ],

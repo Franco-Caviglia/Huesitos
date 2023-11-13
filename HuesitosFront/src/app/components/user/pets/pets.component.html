@@ -1,0 +1,33 @@
+
+<div class="container">
+    <div class="petsList">
+        <table class="talba-mascotas">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Dueño</th>
+                    <th>Nombre mascota</th>
+                    <th>Raza</th>
+                    <th>Tipo</th>
+                    <th>Edad</th>
+                    <th>Agregar turno</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let pet of listPets">
+                <tr>
+                    <th>{{pet.petId}}</th>
+                    <th>{{pet.username}}</th>
+                    <th>{{pet.petName}}</th>
+                    <th>{{pet.breed}}</th>
+                    <th>{{pet.petType}}</th>
+                    <th>{{pet.petAge}}</th>
+                    <th><button (click)="petSelected(pet.petId)"><i class="fa-solid fa-dog"></i></button></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="container" *ngIf="offcanvasView == true">
+    <app-offcanvas [petId]="selectedPet"></app-offcanvas>
+</div>

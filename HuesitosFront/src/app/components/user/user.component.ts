@@ -14,6 +14,7 @@ export class UserComponent implements OnInit{
   listUsers: User[];
   user: User = new User();
 
+  petsView: boolean = false;
 
   constructor(private userService: UserService){}
 
@@ -26,6 +27,15 @@ export class UserComponent implements OnInit{
     this.userService.getUsers().subscribe(dato => {
       this.listUsers = dato;
     })
+  }
+
+  userSelected:number;
+
+  selectedUser(user: number): void{
+    console.log(user);
+    this.userSelected = user;
+    console.log('usuario elegido:', this.userSelected);
+    this.petsView = !this.petsView;
   }
 
 
