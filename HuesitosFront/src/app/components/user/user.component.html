@@ -17,10 +17,14 @@
                     <th>{{user.username}}</th>
                     <th>{{user.phone}}</th>
                     <th>{{user.email}}</th>
-                    <th><button>Pet</button></th>
+                    <th><button (click)="selectedUser(user.id)">Pet</button></th>
                 </tr>
             </tbody>
         </table>
+        
     </div>
 </div>
-</body>
+
+<div class="container" *ngIf="petsView == true">
+    <app-pets [userId]="userSelected"></app-pets>
+</div>
