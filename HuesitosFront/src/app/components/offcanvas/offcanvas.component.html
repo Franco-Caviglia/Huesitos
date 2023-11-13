@@ -3,8 +3,10 @@
       <p>Turno para: {{pet.petName}}</p>
       <form >
         <label for="mail"></label>
-        
-        <input type="email" id="email" placeholder="e-mail" pattern="[a-zA-Z0-9]+([.][a-zA-Z0-9]+)@[a-zA-Z0-9]+([.][a-zA-Z0-9]+)[.][a-zA-Z]{1,5}" >
+        <input type="email" id="email" 
+        [(ngModel)]="shift.email"
+        name="email"
+        placeholder="e-mail" pattern="[a-zA-Z0-9]+([.][a-zA-Z0-9]+)@[a-zA-Z0-9]+([.][a-zA-Z0-9]+)[.][a-zA-Z]{1,5}" >
         
         
         <!-- <label for="animal"></label>
@@ -19,20 +21,21 @@
     
         <label for="subject"></label>
         <textarea id="subject" name="subject"
-        
+        [(ngModel)]="shift.disease"
+        #subject = "ngModel"
         placeholder="Motivo por la consulta?" style="height:200px"></textarea>
        
         <mat-form-field class="example-full-width">
-          <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Choose a date">
+          <input matInput [matDatepickerFilter]="myFilter" [(ngModel)]="shift.date" name="date" [matDatepicker]="picker" placeholder="Choose a date">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
-        <select>
+        <select [(ngModel)]="shift.time" name="time">
           <option *ngFor="let time of timeOptions" [value]="time">{{ time }}</option>
         </select>
     
-        <input type="submit" value="Submit">
+        <input type="submit" (click)="addShift()" value="Submit">
     
       </form>
     </div>
