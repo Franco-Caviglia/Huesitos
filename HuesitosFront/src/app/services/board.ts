@@ -9,12 +9,12 @@ import { ShiftApi, ShiftApiResults } from '../models/board';
 })
 export class BoardService { 
 
-  private urlEndPoint: string = URL_BACK;
+  private urlEndPoint: string = URL_BACK
 
   constructor(private http: HttpClient) { }
 
   getShiftAll():Observable<ShiftApiResults[]>{
-  return this.http.get<ShiftApi>(URL_BACK + '/readAllShifts').pipe(map((apiResult)=>apiResult.results)) 
-  }
-
+  return this.http.get<ShiftApi>('https://rickandmortyapi.com/api/character'
+  ).pipe(map((apiResult)=>apiResult.results)) 
+}
 }

@@ -11,11 +11,9 @@ import { BoardService } from 'src/app/services/board';
 export class ShiftsComponent {
   
     shift$: Observable<ShiftApiResults[]>;
-
     constructor(boardService:BoardService) {
-      console.log("Ah")
+  
       this.shift$ = boardService.getShiftAll();
-      
     }
     myFilter = (d: Date | null): boolean => {
       const day = (d || new Date()).getDay();

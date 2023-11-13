@@ -13,17 +13,13 @@ export interface ShiftApi{
   }
   
   export interface ShiftApiResults{
-          petName:string;
-          username?: string;
-          email: string;
-          disease: string;
-          status: string;
-          time: string;
+          id_shift: number;
+          name:string;
          // username:string;//se obtiene del token
-          
-          
-          
+          mail:string;
+          pet:string;
+          disease:string;
           date:string;
-          
-          //check:boolean;
+          status:string;
+          check:boolean;
   }
