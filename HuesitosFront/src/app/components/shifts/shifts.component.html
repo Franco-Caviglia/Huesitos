@@ -6,12 +6,13 @@
     <table>
         <thead>
             <tr>
-                <th scope="row">ID</th>
-                <th>Username<th>
-                <th>Pet</th>
-                <th>Disease</th>
-                <th>Date</th>
-                <th>Status</th> 
+                <th>ID</th>
+                <th>Nombre usuario<th>
+                <th>Nombre mascota</th>
+                <th>Problema</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Estado</th> 
                 <th>Check</th>
             </tr>
         </thead>
@@ -21,10 +22,9 @@
                 <td>{{shift.username}}</td>
                 <td>{{shift.petName}}</td>
                 <td>{{shift.disease}}</td>
-                <td>{{shift.date | date: 'dd/MM/yyyy' }}</td>
+                <td>{{shift.date}}</td>
                 <td>{{shift.status}}</td>
               
-                    
                     <label for="btn-menu">
                         <button>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-clipboard2-x-fill" viewBox="0 0 16 16">

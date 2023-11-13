@@ -1,4 +1,3 @@
-
   export class Shift{
           id_shift: number;
           username:string;

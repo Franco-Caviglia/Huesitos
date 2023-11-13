@@ -1,6 +1,25 @@
 
-<div class="container text-center">
-    <div *ngIf="isLogged; else loggedOut"><h2>Bienvenido {{username}} Usuario!</h2></div>
-    <ng-template #loggedOut>No has iniciado sesion!</ng-template>
+<div class="container">
+    <div class="userlist">
+        <table class="talba-usuarios">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre Usuario</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th>Ver Mascotas</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let user of listUsers">
+                <tr>
+                    <th>{{user.id}}</th>
+                    <th>{{user.username}}</th>
+                    <th>{{user.phone}}</th>
+                    <th>{{user.email}}</th>
+                    <th><button>Pet</button></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
-
