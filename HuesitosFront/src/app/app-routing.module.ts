@@ -16,7 +16,7 @@ import { OffcanvasComponent } from './components/offcanvas/offcanvas.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent,
-   //canActivate: [authGuard]
+   canActivate: [authGuard]
   },
 
   {path: '', redirectTo: '/login', pathMatch: 'full'},

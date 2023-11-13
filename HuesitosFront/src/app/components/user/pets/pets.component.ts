@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, SimpleChange } from '@angular/core';
 import { Pet } from 'src/app/models/pet';
-import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({

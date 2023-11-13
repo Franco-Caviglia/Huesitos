@@ -46,7 +46,7 @@ export class OffcanvasComponent implements OnInit{
 
   pet: Pet = new Pet();
 
-  shift: ShiftRequest[];
+  shift: ShiftRequest = new ShiftRequest();
 
 
   getPet():void {
@@ -55,7 +55,11 @@ export class OffcanvasComponent implements OnInit{
     })
   }
 
-  
+  addShift():void{
+    this.petService.addShiftForPet(this.petId, this.shift).subscribe(dato => {
+      console.log(dato);
+    })
+  }
 
 
 }
