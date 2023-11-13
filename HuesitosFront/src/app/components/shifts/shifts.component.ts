@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ShiftApiResults } from 'src/app/models/board';
-import { BoardService } from 'src/app/services/board';
 
 @Component({
   selector: 'app-shifts',
@@ -10,11 +9,8 @@ import { BoardService } from 'src/app/services/board';
 })
 export class ShiftsComponent {
   
-    shift$: Observable<ShiftApiResults[]>;
-    constructor(boardService:BoardService) {
-  
-      this.shift$ = boardService.getShiftAll();
-    }
+    
+    
     myFilter = (d: Date | null): boolean => {
       const day = (d || new Date()).getDay();
       // Prevent Saturday and Sunday from being selected.

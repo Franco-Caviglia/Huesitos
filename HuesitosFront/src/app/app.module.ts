@@ -19,7 +19,6 @@ import { FormsModule } from '@angular/forms';
 import { UserComponent } from './components/user/user.component';
 import { interceptorProvider } from './interceptors/prod-interceptor.service';
 import { SideboardComponent } from './shared/sideboard/sideboard.component';
-import { ShiftsComponent } from './components/shifts/shifts.component';
 import { MarketComponent } from './components/market/market.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { OffcanvasComponent } from './components/offcanvas/offcanvas.component';
@@ -34,7 +33,6 @@ import { OffcanvasComponent } from './components/offcanvas/offcanvas.component';
     RegisterComponent,
     UserComponent,
     SideboardComponent,
-    ShiftsComponent,
     MarketComponent,
     ContactsComponent,
     OffcanvasComponent,
