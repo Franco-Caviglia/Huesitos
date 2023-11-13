@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Pets } from 'src/app/models/pets';
 import { TokenService } from 'src/app/services/token.service';
 
 @Component({
@@ -8,30 +9,15 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class UserComponent implements OnInit{
 
-  isLogged = false;
-  username = '';
-  isUser = false;
-  roles: string[];
 
-  constructor(private tokenService: TokenService){}
+  listPets: Pets[];
+  pet: Pets = new Pets();
+
+  constructor(){}
 
 
   ngOnInit(): void {
-    if(this.tokenService.getToken()){
-      this.isLogged = true;
-      this.username = this.tokenService.getUsername();
-      this.roles = this.tokenService.getAuthorities();
-
-      this.roles.forEach(rol => {
-        if(rol === 'USER' || rol === 'ADMINISTRATOR'){
-          console.log(rol)
-          this.isUser = true;
-        }
-      });
-    } else {
-      this.isLogged = false;
-      this.username = '';
-    }
+    
   }
 
 }

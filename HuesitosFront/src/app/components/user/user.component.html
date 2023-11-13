@@ -1,6 +1,30 @@
+<div class="table"  >
 
-<div class="container text-center">
-    <div *ngIf="isLogged; else loggedOut"><h2>Bienvenido {{username}} Usuario!</h2></div>
-    <ng-template #loggedOut>No has iniciado sesion!</ng-template>
+    <div class="table_body">
+        
+    <table>
+        <thead>
+            <tr>
+                <!-- <th scope="row">ID</th> -->
+                <th>Username<th>
+                <th>Pet</th>
+                <th>Disease</th>
+                <th>Date</th>
+                <th>Status</th> 
+                <th>Check</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pet of pets">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>  
+            </tr>
+        </tbody>
+     </table>
+    </div>
 </div>
-
