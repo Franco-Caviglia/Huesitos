@@ -1,6 +1,3 @@
-  export class ShiftRequest{
-          email:string;
-          disease:string;
-          date:string;
-          time:string;
-  }
+export class ShiftRequest {
+    
+}

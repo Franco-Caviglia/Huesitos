@@ -23,7 +23,6 @@ import { ShiftsComponent } from './components/shifts/shifts.component';
 import { MarketComponent } from './components/market/market.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { OffcanvasComponent } from './components/offcanvas/offcanvas.component';
-import { PetsComponent } from './components/user/pets/pets.component';
 
 @NgModule({
   declarations: [
@@ -33,11 +32,13 @@ import { PetsComponent } from './components/user/pets/pets.component';
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
+    UserComponent,
     SideboardComponent,
+    ShiftsComponent,
     MarketComponent,
     ContactsComponent,
     OffcanvasComponent,
-    PetsComponent,
+    
     
   ],
   imports: [
