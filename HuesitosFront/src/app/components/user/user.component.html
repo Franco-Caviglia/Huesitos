@@ -1,6 +1,88 @@
+<<<<<<< Updated upstream
 
 <div class="container text-center">
     <div *ngIf="isLogged; else loggedOut"><h2>Bienvenido {{username}} Usuario!</h2></div>
     <ng-template #loggedOut>No has iniciado sesion!</ng-template>
 </div>
 
+=======
+<body>
+<div class="container">
+    <div class="userlist">
+        <table class="talba-usuarios">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre Usuario</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th>Ver Mascotas</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let user of listUsers">
+                <tr>
+                    <th>{{user.id}}</th>
+                    <th>{{user.username}}</th>
+                    <th>{{user.phone}}</th>
+                    <th>{{user.email}}</th>
+                    <th><button (click)="selectedUser(user.id)">Pet</button><button class="add" (click)="openAddPetView()"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-plus-fill" viewBox="0 0 16 16">
+                        <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM8.5 6v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 1 0z"/>
+                      </svg></button></th>
+                </tr>
+            </tbody>
+        </table>
+    
+    </div>
+</div>
+
+
+<div class="container" *ngIf="petsView == true">
+    <app-pets [userId]="userSelected"></app-pets>
+</div>
+
+
+
+
+<div class="main">
+    <div class="container">
+      <form >
+        <label for="petName"></label>
+        <input type="text" id="petName" 
+        [(ngModel)]="pet.petName"
+        name="petName"
+        placeholder="nombre mascota" pattern="[a-zA-Z0-9]+([.][a-zA-Z0-9]+)@[a-zA-Z0-9]+([.][a-zA-Z0-9]+)[.][a-zA-Z]{1,5}" >
+        
+        
+        <label for="animal"></label>
+        <select id="animal" [(ngModel)]="pet.petType"
+        #petType = "ngModel" name="animal">
+          <option value=""></option>
+          <option value="perro">Perro</option>
+          <option value="gato">Gato</option>
+          <option value="roedor">Roedor</option>
+          <option value="ave">Ave</option>
+          <option value="otro">Otros</option>
+        </select>
+
+        <label for="animal"></label>
+        <select id="animal" [(ngModel)]="pet.petAge"
+        #petAge = "ngModel" name="petAge">
+          <option value=""></option>
+          <option value="perro"> menos de 1 año</option>
+          <option value="gato">1 año</option>
+          <option value="roedor">mayor 1 año y menor a 5 años</option>
+          <option value="roedor">mayor a 5 años</option>
+        </select>
+    
+        <label for="breed"></label>
+        <textarea id="breed" name="breed"
+        [(ngModel)]="pet.breed"
+        #breed = "ngModel"
+        placeholder="Motivo por la consulta?" style="height:200px"></textarea>
+    
+        <input type="submit" (click)="addPet()" value="Submit">
+    
+      </form>
+    </div>
+</div>
+>>>>>>> Stashed changes
