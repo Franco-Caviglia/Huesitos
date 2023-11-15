@@ -59,6 +59,16 @@ export class OffcanvasComponent implements OnInit{
   addShift():void{
     this.petService.addShiftForPet(this.petId, this.shift).subscribe(dato => {
       console.log(dato);
+      
+      Swal.fire({
+        title: "Turno agregado con exito",
+        timer: 1800,
+        icon: "success",
+        heightAuto: false
+      }).then((result) => {
+        window.location.reload();
+        this.router.navigate(["/shifts"]);
+      })
       Swal.fire({
         title: "Turno agregado con exito",
         timer: 1000,
