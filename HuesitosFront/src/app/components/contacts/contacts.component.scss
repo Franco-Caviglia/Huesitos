@@ -39,7 +39,7 @@ Copiar esto
 .card-usuario {
     display: flex;
     width: auto;
-    height: auto;
+    height: 214.4px;
     box-shadow: 0 0 12px 2px rgba(0, 0, 0, .15);
     background-color: #fff;
    
@@ -57,7 +57,7 @@ Copiar esto
     margin-bottom: 1rem;
 }
 .card-usuario .seccion-avatar {
-    background: linear-gradient(#D482FF, #80A7FF);
+    background: linear-gradient(#153230, #252525);
     padding: 20px;
     color: #fff;
 }
@@ -91,10 +91,10 @@ Copiar esto
 .card-usuario .seccion-datos p {
     font-size: .8em;
     color: #808080;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 }
 .seccion-datos .botones-redes {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 }
 .seccion-datos .botones-redes a {
     text-decoration: none;
@@ -115,23 +115,23 @@ Copiar esto
     color: #5E5E5E;
 }
 .seccion-datos .botones-redes a.facebook {
-    background-color: #5E80FF;
+    background-color: #153230;
 }
 .seccion-datos .botones-redes a.twitter {
-    background-color: #36BEC7;
+    background-color: #252525;
 }
 .seccion-datos .botones-redes a.instagram {
-    background: linear-gradient(#D482FF, #80A7FF);
+    background: linear-gradient(#153230, #252525);
 }
 .seccion-datos .bio-usuario {
-    font-size: 0.9rem;
+    font-size: 0.9rem;  
     color: #858585;
 }
 
 @media (max-width: 900px) {
     .card-usuario {
         flex-direction: column;
-        width: 220px;
+        width: 200px;
     }
     .card-usuario .seccion-avatar {
         display: flex;
