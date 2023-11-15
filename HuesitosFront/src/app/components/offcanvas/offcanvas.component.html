@@ -1,7 +1,10 @@
 <div class="main">
     <div class="container">
-      <p>Turno para: {{pet.petName}}</p>
-      <form >
+  
+      <form class="form"  style="display: flex;
+      flex-direction: row;
+    justify-content: space-between;">
+        <div class="sect1" style="grid-row: auto;">
         <label for="mail"></label>
         <input type="email" id="email" 
         [(ngModel)]="shift.email"
@@ -24,7 +27,8 @@
         [(ngModel)]="shift.disease"
         #subject = "ngModel"
         placeholder="Motivo por la consulta?" style="height:200px"></textarea>
-       
+      </div>
+      <div class="sect2">
         <mat-form-field class="example-full-width">
           <input matInput [matDatepickerFilter]="myFilter" [(ngModel)]="shift.date" name="date" [matDatepicker]="picker" placeholder="Choose a date">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -36,7 +40,7 @@
         </select>
     
         <input type="submit" (click)="addShift()" value="Submit">
-    
+      </div>
       </form>
     </div>
 </div>
