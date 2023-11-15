@@ -67,7 +67,7 @@ export class PetsComponent implements OnInit{
       if (result.isConfirmed){
         this.petService.deletePetById(petId).subscribe(dato => {
           console.log(dato); 
-          this.getPets();
+          
         })
         
         Swal.fire({
@@ -77,6 +77,8 @@ export class PetsComponent implements OnInit{
           showConfirmButton: false,
           heightAuto: false,
           timer: 1000
+        }).then((result) => {
+          window.location.reload();
         });
       } else {
         Swal.fire({
@@ -89,5 +91,6 @@ export class PetsComponent implements OnInit{
         });
       }
     });
+    
   }
 }

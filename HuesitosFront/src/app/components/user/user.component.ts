@@ -5,6 +5,7 @@ import { User } from 'src/app/models/user';
 import { PetService } from 'src/app/services/pet.service';
 
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user',
@@ -56,8 +57,19 @@ export class UserComponent implements OnInit{
 
   addPet():void{
     console.log(this.userSelected, this.pet);
+
+   
       this.petService.addPetToUserId(this.userSelected,this.pet).subscribe(dato=>{
        this.pet = dato ;
+       Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Mascota agregada con exito',
+        showConfirmButton: false,
+        heightAuto: false,
+        timer: 1400,
+      })
+      this.addPetView = false;
      });
   }
 
