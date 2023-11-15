@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
 import { ShiftRequest } from '../models/ShiftRequest';
 import { Shift } from '../models/shift';
 
+import { PetRequest } from '../models/petRequest';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,6 +25,10 @@ export class PetService {
 
   getPetByUserId(id:number): Observable<Pet>{
     return this.http.get<Pet>(`${this.userURL}/${id}` + '/readPet');
+  }
+
+  addPetToUserId(id:number,pet:PetRequest): Observable<any>{
+    return this.http.post(`${this.userURL}/${id}` + '/addPet', pet);
   }
 
 
