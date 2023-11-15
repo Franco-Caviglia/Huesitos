@@ -16,31 +16,29 @@ import { OffcanvasComponent } from './components/offcanvas/offcanvas.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent,
-   //canActivate: [authGuard]
+   canActivate: [authGuard]
   },
 
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-
-  { path: 'offcanvas',
-    component: OffcanvasComponent,
-    //canActivate: [authGuard]
-  },
     
   {path: 'sideboard', component: SideboardComponent,
-   //canActivate: [authGuard]
+   canActivate: [authGuard]
+  },
+
+  {path: 'users', component: UserComponent,
+   canActivate: [authGuard]
   },
 
   {path: 'shifts', component: ShiftsComponent,
-  //canActivate: [authGuard]
+  canActivate: [authGuard]
 },
   {path: 'market', component: MarketComponent,
-  //canActivate: [authGuard]
-},
+  canActivate: [authGuard]},
   {path: 'contacts', component: ContactsComponent,
-  //canActivate: [authGuard]
-}
+  canActivate: [authGuard]
+  }
 ];
 
 @NgModule({

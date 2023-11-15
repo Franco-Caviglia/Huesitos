@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Shift, } from 'src/app/models/board';
-import { BoardService } from 'src/app/services/board.service';
+import { Shift } from 'src/app/models/shift';
+
+import { PetService } from 'src/app/services/pet.service';
 
 @Component({
   selector: 'app-shifts',
@@ -11,11 +11,11 @@ import { BoardService } from 'src/app/services/board.service';
 })
 export class ShiftsComponent implements OnInit {
   
-  shifts:Shift[];
+  shifts: Shift[];
 
   shift : Shift = new Shift();
 
-  constructor(private shiftService:BoardService, private router:Router){}
+  constructor(private petService:PetService, private router:Router){}
 
   ngOnInit(): void {
     this.obtenerShift();
@@ -23,12 +23,28 @@ export class ShiftsComponent implements OnInit {
   }
 
   //Con este metodo nos suscribimos a ese listado, lo obtenemos y lo inicializamos en el OnInIt;
-  private obtenerShift(){
-    this.shiftService.getBoard().subscribe(dato => {
+  obtenerShift(){
+    this.petService.getShifts().subscribe(dato => {
       
-      this.shifts = dato;
+        this.shifts = dato; 
+      
+     
+      
     })
   }
+
+
+  completeShift(shiftId:number):void{
+
+    this.petService.completeShift(shiftId, this.shift).subscribe(
+      dato => {
+      console.log(dato);
+      this.obtenerShift();
+      window.location.reload();
+    } 
+    )
+       
+  } 
 
 
     myFilter = (d: Date | null): boolean => {

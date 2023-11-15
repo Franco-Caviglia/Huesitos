@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< Updated upstream
-=======
+
 import { PetRequest } from 'src/app/models/petRequest';
 import { User } from 'src/app/models/user';
 import { PetService } from 'src/app/services/pet.service';
->>>>>>> Stashed changes
+
+import { User } from 'src/app/models/user';
+
 import { TokenService } from 'src/app/services/token.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user',
@@ -14,43 +16,26 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class UserComponent implements OnInit{
 
-  isLogged = false;
-  username = '';
-  isUser = false;
-  roles: string[];
-
-<<<<<<< Updated upstream
-  constructor(private tokenService: TokenService){}
-=======
   listUsers: User[];
   user: User = new User();
 
   petsView: boolean = false;
 
+
   constructor(private userService: UserService, private petService:PetService){}
->>>>>>> Stashed changes
 
 
   ngOnInit(): void {
-    if(this.tokenService.getToken()){
-      this.isLogged = true;
-      this.username = this.tokenService.getUsername();
-      this.roles = this.tokenService.getAuthorities();
-
-      this.roles.forEach(rol => {
-        if(rol === 'USER' || rol === 'ADMINISTRATOR'){
-          console.log(rol)
-          this.isUser = true;
-        }
-      });
-    } else {
-      this.isLogged = false;
-      this.username = '';
-    }
+    this.getUsers();
   }
 
-<<<<<<< Updated upstream
-=======
+  getUsers(){
+    this.userService.getUsers().subscribe(dato => {
+      this.listUsers = dato;
+    })
+  }
+
+
   getUsers(){
     this.userService.getUsers().subscribe(dato => {
       this.listUsers = dato;
@@ -65,6 +50,7 @@ export class UserComponent implements OnInit{
     console.log('usuario elegido:', this.userSelected);
     this.petsView = !this.petsView;
   }
+
 
   addPetView: boolean = false;
 
@@ -81,5 +67,4 @@ export class UserComponent implements OnInit{
     })
   }
 
->>>>>>> Stashed changes
 }
