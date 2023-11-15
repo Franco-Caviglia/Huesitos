@@ -28,20 +28,23 @@ export class PetService {
     return this.http.get<Pet>(`${this.userURL}/${id}` + '/readPet');
   }
 
-  //========================ACOMODAR==================
   addPetToUserId(user_id:number, pet:PetRequest): Observable<any>{
     return this.http.post(`${this.userURL}/${user_id}` + '/addPet', pet);
   }
-  //========================ACOMODAR==================
   
   deletePetById(petId: number): Observable<Object>{
     return this.http.delete(`${this.userURL}/${petId}` + '/deletePet');
   }
 
+  //======================SHIFTS======================
   addShiftForPet(petId:number, shift: ShiftRequest): Observable<Object>{
       return this.http.post(`${this.userURL}/${petId}` + '/addShiftToPet', shift);
     }
 
+  markShiftAsComplete(shift_id: number, shift: Shift ): Observable<Object>{
+    return this.http.put(`${this.userURL}/${shift_id}`+'/markCompleteShifts', shift)
+  }
+  
   
 
   deleteShift(id:number): Observable<Object>{

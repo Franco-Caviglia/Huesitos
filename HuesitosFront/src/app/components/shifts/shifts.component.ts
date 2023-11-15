@@ -31,8 +31,14 @@ export class ShiftsComponent implements OnInit {
   }
 
 
-  deleteShift(shiftId:number):void{
+  markShifAsComplete(shiftId: number):void{
+    this.petService.markShiftAsComplete(shiftId, this.shift).subscribe(dato => {
+      console.log(dato);
+      this.obtenerShift()
+    })
+  }
 
+  deleteShift(shiftId:number):void{
       Swal.fire({
         title: '¿Estas seguro?',
         confirmButtonText: 'Eliminar',
@@ -48,17 +54,19 @@ export class ShiftsComponent implements OnInit {
             dato => {
             console.log(dato);
           }
-          
           )
-          window.location.reload();
           Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'El turno ha sido eliminado',
             showConfirmButton: false,
             heightAuto: false,
-            timer: 1000
-          });
+            timer: 1400,
+          }).then((result) =>{
+            window.location.reload();
+          }
+          );
+          
         } else {
           Swal.fire({
             position: 'center',
@@ -66,10 +74,12 @@ export class ShiftsComponent implements OnInit {
             title: 'Cancelado',
             showConfirmButton: false,
             heightAuto: false,
-            timer: 1000
+            timer: 1400
           });
         }
+        
       });
+      
   } 
 
 
@@ -94,14 +104,56 @@ export class ShiftsComponent implements OnInit {
     }
 
 
-    order():void {
+    orderAs: boolean = false;
+    orderDesc: boolean = false;
+
+
+    order(): void{
+      if(this.orderAs == true && this.orderDesc == false){
+        this.orderAsc();
+        this.orderAs = false;
+        
+      } else if (this.orderAs == false && this.orderDesc == true){
+        this.orderDes();
+        this.orderDesc = false;
+        this.orderAs = true;
+
+      } else if (this.orderAs == false && this.orderDesc == false){
+        this.orderAsc();
+
+        this.orderDesc = true;
+      };
+    }
+
+    orderAsc():void {
+
+      this.shifts.sort(function(a, b) {
+        if(a.status > b.status){
+          return 1;
+        }
+        if(a.status < b.status) {
+          return -1;
+        }
+        return 0;
+      })
+      
 
     }
+
+    orderDes():void { 
+
+      this.shifts.sort(function(a, b) {
+        if(a.status > b.status){
+          return -1;
+        }
+        if(a.status < b.status) {
+          return 1;
+        }
+        return 0;
+      })
+      
+    }
+
   }
   
-
-
-  function then(arg0: (result: any) => void) {
-    throw new Error('Function not implemented.');
-  }
 
