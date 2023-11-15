@@ -36,7 +36,7 @@ export class ShiftsComponent implements OnInit {
 
   completeShift(shiftId:number):void{
 
-    this.petService.completeShift(shiftId, this.shift).subscribe(
+    this.petService.deleteShift(shiftId, this.shift).subscribe(
       dato => {
       console.log(dato);
       this.obtenerShift();

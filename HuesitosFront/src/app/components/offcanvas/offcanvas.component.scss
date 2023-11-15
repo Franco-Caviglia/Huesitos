@@ -20,6 +20,15 @@
     background: #153230;
     top: 0;left: 0;
 }
+.container{
+    display: flex;
+    flex-direction: row;
+}
+.sect2{
+    margin-top: 6px;
+    margin-left:10px;
+   
+}
 /*Estilos para el encabezado*/
 .header{
     width: 100%;
@@ -136,6 +145,7 @@ resize: vertical /* Allow the user to vertically resize the textarea (not horizo
 /* Style the submit button with a specific background color etc */
 
 input[type=submit] {
+    float: right;
 background-color: #04AA6D;
 color: white;
 padding: 10px 20px;

@@ -29,7 +29,7 @@ export class PetService {
     return this.http.post(`${this.userURL}/${petId}` + '/addShiftToPet', shift);
   }
 
-  completeShift(id:number, shift: Shift): Observable<Object>{
-    return this.http.put(`${this.userURL}/${id}` + '/markCompleteShifts', shift);
+  deleteShift(id:number, shift: Shift): Observable<Object>{
+    return this.http.put(`${this.userURL}/${id}` + '/deleteShifts', shift);
   }
 }
