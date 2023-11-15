@@ -66,8 +66,7 @@ export class PetsComponent implements OnInit{
     }).then((result) => {
       if (result.isConfirmed){
         this.petService.deletePetById(petId).subscribe(dato => {
-          console.log(dato); 
-          
+          console.log(dato);
         })
         
         Swal.fire({
