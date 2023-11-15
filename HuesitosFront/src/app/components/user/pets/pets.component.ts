@@ -48,5 +48,5 @@ export class PetsComponent implements OnInit{
     console.log('Mascota elegida:', this.selectedPet);
     this.offcanvasView = !this.offcanvasView;
   }
-
+  //TODO metodo para agregar turnos;
 }
