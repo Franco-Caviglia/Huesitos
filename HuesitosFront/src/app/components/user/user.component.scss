@@ -32,3 +32,18 @@ table,th,td{
     width: auto;
 }
 
+.container-pets{
+    justify-content: center;
+    width: auto;
+}
+
+.pet-list {
+    display: flex;
+    
+}
+
+form {
+    display: flex;
+    
+    border: 1px solid black;
+}

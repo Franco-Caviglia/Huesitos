@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Shift } from 'src/app/models/shift';
 
 import { PetService } from 'src/app/services/pet.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-shifts',
@@ -25,25 +26,50 @@ export class ShiftsComponent implements OnInit {
   //Con este metodo nos suscribimos a ese listado, lo obtenemos y lo inicializamos en el OnInIt;
   obtenerShift(){
     this.petService.getShifts().subscribe(dato => {
-      
         this.shifts = dato; 
-      
-     
-      
     })
   }
 
 
-  completeShift(shiftId:number):void{
+  deleteShift(shiftId:number):void{
 
-    this.petService.deleteShift(shiftId, this.shift).subscribe(
-      dato => {
-      console.log(dato);
-      this.obtenerShift();
-      window.location.reload();
-    } 
-    )
-       
+      Swal.fire({
+        title: '¿Estas seguro?',
+        confirmButtonText: 'Eliminar',
+        cancelButtonText: 'Cancelar',
+        width:'500px',
+        background: '#fff',
+        position: 'top',
+        heightAuto: false,
+        showCancelButton: true
+      }).then((result) => {
+        if (result.isConfirmed){
+          this.petService.deleteShift(shiftId).subscribe(
+            dato => {
+            console.log(dato);
+          }
+          
+          )
+          window.location.reload();
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'El turno ha sido eliminado',
+            showConfirmButton: false,
+            heightAuto: false,
+            timer: 1000
+          });
+        } else {
+          Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            title: 'Cancelado',
+            showConfirmButton: false,
+            heightAuto: false,
+            timer: 1000
+          });
+        }
+      });
   } 
 
 
@@ -66,7 +92,16 @@ export class ShiftsComponent implements OnInit {
         }
       }
     }
+
+
+    order():void {
+
+    }
   }
   
 
+
+  function then(arg0: (result: any) => void) {
+    throw new Error('Function not implemented.');
+  }
 

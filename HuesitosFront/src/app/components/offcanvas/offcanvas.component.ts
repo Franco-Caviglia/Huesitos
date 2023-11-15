@@ -4,6 +4,7 @@ import { ShiftRequest } from 'src/app/models/ShiftRequest';
 
 import { Pet } from 'src/app/models/pet';
 import { PetService } from 'src/app/services/pet.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -58,8 +59,14 @@ export class OffcanvasComponent implements OnInit{
   addShift():void{
     this.petService.addShiftForPet(this.petId, this.shift).subscribe(dato => {
       console.log(dato);
-      this.router.navigate(["/shifts"]);
+      Swal.fire({
+        title: "Turno agregado con exito",
+        timer: 1000,
+        icon: "success",
+        heightAuto: false
+      })
     })
+    
   }
 
 
