@@ -13,6 +13,7 @@ import { PetRequest } from '../models/petRequest';
   providedIn: 'root'
 })
 export class PetService {
+  
 
   private userURL = "http://localhost:8080/api/admin";
 
@@ -27,16 +28,26 @@ export class PetService {
     return this.http.get<Pet>(`${this.userURL}/${id}` + '/readPet');
   }
 
-  addPetToUserId(id:number,pet:PetRequest): Observable<any>{
-    return this.http.post(`${this.userURL}/${id}` + '/addPet', pet);
+  addPetToUserId(user_id:number, pet:PetRequest): Observable<any>{
+    return this.http.post(`${this.userURL}/${user_id}` + '/addPet', pet);
+  }
+  
+  deletePetById(petId: number): Observable<Object>{
+    return this.http.delete(`${this.userURL}/${petId}` + '/deletePet');
   }
 
-
+  //======================SHIFTS======================
   addShiftForPet(petId:number, shift: ShiftRequest): Observable<Object>{
-    return this.http.post(`${this.userURL}/${petId}` + '/addShiftToPet', shift);
-  }
+      return this.http.post(`${this.userURL}/${petId}` + '/addShiftToPet', shift);
+    }
 
-  completeShift(id:number, shift: Shift): Observable<Object>{
-    return this.http.put(`${this.userURL}/${id}` + '/markCompleteShifts', shift);
+  markShiftAsComplete(shift_id: number, shift: Shift ): Observable<Object>{
+    return this.http.put(`${this.userURL}/${shift_id}`+'/markCompleteShifts', shift)
+  }
+  
+  
+
+  deleteShift(id:number): Observable<Object>{
+    return this.http.delete(`${this.userURL}/${id}` + '/deleteShifts');
   }
 }

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Shift } from 'src/app/models/shift';
 
 import { PetService } from 'src/app/services/pet.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-shifts',
@@ -25,25 +26,60 @@ export class ShiftsComponent implements OnInit {
   //Con este metodo nos suscribimos a ese listado, lo obtenemos y lo inicializamos en el OnInIt;
   obtenerShift(){
     this.petService.getShifts().subscribe(dato => {
-      
         this.shifts = dato; 
-      
-     
-      
     })
   }
 
 
-  completeShift(shiftId:number):void{
-
-    this.petService.completeShift(shiftId, this.shift).subscribe(
-      dato => {
+  markShifAsComplete(shiftId: number):void{
+    this.petService.markShiftAsComplete(shiftId, this.shift).subscribe(dato => {
       console.log(dato);
-      this.obtenerShift();
-      window.location.reload();
-    } 
-    )
-       
+      this.obtenerShift()
+    })
+  }
+
+  deleteShift(shiftId:number):void{
+      Swal.fire({
+        title: '¿Estas seguro?',
+        confirmButtonText: 'Eliminar',
+        cancelButtonText: 'Cancelar',
+        width:'500px',
+        background: '#fff',
+        position: 'top',
+        heightAuto: false,
+        showCancelButton: true
+      }).then((result) => {
+        if (result.isConfirmed){
+          this.petService.deleteShift(shiftId).subscribe(
+            dato => {
+            console.log(dato);
+          }
+          )
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'El turno ha sido eliminado',
+            showConfirmButton: false,
+            heightAuto: false,
+            timer: 1400,
+          }).then((result) =>{
+            window.location.reload();
+          }
+          );
+          
+        } else {
+          Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            title: 'Cancelado',
+            showConfirmButton: false,
+            heightAuto: false,
+            timer: 1400
+          });
+        }
+        
+      });
+      
   } 
 
 
@@ -66,7 +102,58 @@ export class ShiftsComponent implements OnInit {
         }
       }
     }
+
+
+    orderAs: boolean = false;
+    orderDesc: boolean = false;
+
+
+    order(): void{
+      if(this.orderAs == true && this.orderDesc == false){
+        this.orderAsc();
+        this.orderAs = false;
+        
+      } else if (this.orderAs == false && this.orderDesc == true){
+        this.orderDes();
+        this.orderDesc = false;
+        this.orderAs = true;
+
+      } else if (this.orderAs == false && this.orderDesc == false){
+        this.orderAsc();
+
+        this.orderDesc = true;
+      };
+    }
+
+    orderAsc():void {
+
+      this.shifts.sort(function(a, b) {
+        if(a.status > b.status){
+          return 1;
+        }
+        if(a.status < b.status) {
+          return -1;
+        }
+        return 0;
+      })
+      
+
+    }
+
+    orderDes():void { 
+
+      this.shifts.sort(function(a, b) {
+        if(a.status > b.status){
+          return -1;
+        }
+        if(a.status < b.status) {
+          return 1;
+        }
+        return 0;
+      })
+      
+    }
+
   }
   
-
 
